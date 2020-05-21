@@ -1,0 +1,40 @@
+a{
+	font-size: 1.6em;
+	font-family: georgia;
+	text-decoration: none;
+	font:#008000;
+}
+
+#menubar1{
+	background-color:#80ff80;
+
+}
+
+#menubar2{
+	text-align: center;
+   display:inline;
+   vertical-align:top;
+}
+
+.icon{
+	max-width: 250px;
+	margin: 0 auto;
+	display:block;
+}
+
+section{
+	padding: 5px;
+}
+
+section img{
+	padding-right: 10px;
+}
+
+p{
+	font-size: 1.3em;
+	font-family: georgia;
+	text-decoration: none;
+	font:#008000;
+}
+
+

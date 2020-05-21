@@ -1,0 +1,131 @@
+Paristithi is a not-for-profit organization founded by the youth of Dehradun. The organization aims to create widespread awareness and involve the common people in creating a better environment, and preserving the ecology around us. The iterative ideology includes improving our own habits and practices first and then encouraging others to do the same. To bring about this change, the organization is now going to use digital platform as a medium to spread awareness, and gather volunteers through a website.
+
+The major functions provided through this website for users are:
+The visitors can browse the website for information and learn about the organization
+The visitors can volunteer for the organization by filling a volunteering form available on the website.
+The website provides a link where people can donate money to support the organization.
+The website information provides the contact information of the founders of Paristithi.
+
+User classes and characteristics
+
+Visitors:
+   Frequency of use- High;
+   Technical expertise- low to medium;
+   Security level- low;
+   Characteristics- Can use the website to browse for information; 
+
+Volunteers:
+   Frequency of use- High;
+   Technical expertise- medium;
+   Security level- low;
+   Characteristics- Can use the website to register as volunteers for Paristithi;
+
+Sponsors:
+   Frequency of use- Medium;
+   Technical expertise- medium;
+   Security level- low;
+   Characteristics- Can use the website to Donate money in support of Paristithi;
+
+Admin:
+   Frequency of use- High;
+   Technical expertise- High;
+   Security level- High;
+   Characteristics- Can use the Admin portal to View the database and add future Events ;
+
+
+
+Iteration 1:
+ The Website is developed on the Localhost server of the developer. The hosting server is the Apache 2.4.9.
+ The website uses the local system's MySQL database to store information on the back end.
+Iteration 2:
+ The website is transferred on to the Hosting server.
+ The MySQL database on the server is used, and credentials are given according to the type of the database (shared or private)       
+
+
+Following are the limitations with Iteration 1:
+The mailing facility is not available on localhost.
+The Admin cannot delete any events that he creates.
+The link to the payment gateway cannot be provided on localhost.
+Admin cannot add pictures to the gallery dynamically.
+
+All these limitations will be overcome on the second iteration.
+
+Constraints:
+ The language of delivery is English only.
+ All communication in iteration 2 will be done by mailing through SMTP.
+ Security considerations will be implemented to tackle SQL injections but not for Brute force attack. 
+
+ The Documentation available along with this SRS document will be a project report that will explain the reason for adoption of an approach and the technicalities involved in its adoption and execution. The Project report will contain terms like jQuery, PHP, Bootstrap and CSS. The documentations for these are available online and can be accessed easily. 
+
+ The proper working of the website is dependent on the following assumptions:
+  The person who registers as a volunteer does not register again.
+  The contact information provided on the website is correct and up to date.
+  The Sponsors are recognized by the organizing team of Paristithi.
+  The Events are updated regularly by the Admin. 
+  The Gallery is updated regularly by the developer/Admin.
+  The Website is hosted on a reliable server which is available at all times.
+  The database used provides consistent data at all times.
+
+
+The user interfaces required will be user friendly and interactive in nature, using features like input fields in forms and buttons. The example of the functions provided by such user interfaces include submitting a form filled by the user to the databases. The forms are to be validated via jQuery and error messages are displayed only when an incorrect value is entered by the user. Buttons are provided at Admin portal to logout or to dynamically add an event to the website.   
+
+The website can run on any computer, mobile or nay tablet screen without distortion. This is one of the primary reasons why Bootstrap is used for development. The front and the back end of the website must be separated and organized in distinguished fashion. The scripts that run on the browser and scripts that run on the server will be seperated. Multiple data types may be exchanged between these ends like text, images and session details. The protocol of such interaction can be simple POST action from a HTML form to a PHP reciever file, or an AJAX method.
+
+
+Softwares to be used: 
+Text editor: Notepad, notepad++, Sublime text
+Database: MySQL
+Front end Scripting language: HTML, CSS, Bootstrap
+User interactivity scripting language: Javascript, jQuery, Bootstrap
+Back end scripting langauge: PHP, SQL
+Communication protocols: POST method, SMTP.
+Software required for communication with server:
+ iteration 1: Wamp Server 64
+ iteration 2: WinSCP
+ To maintain privacy, Database implementation using Views is considered in case of Shared Hosting.
+
+The following protocols are used for communication between interfaces of the website:
+HTTP: Used whenever a PHP file runs on the server to retrieve some data from the database. This protocol includes sending a HTTP request and the data from the server is included in the HTTP response message.
+SMTP: Simple mail Transfer Protocol is used to send auto generated emails from the server to email addresses that are provided to the server. This is used to send confirmations and to update the user about any Events about to happen(To be Implemented in Iteration 2)
+
+
+This section of the document illustrates the major services provided by the website. The functions are listed below along with their sample inputs and outputs which should provide an idea about the behaviour of the website in ideal conditions.
+
+
+This functionality can be invoked by either clicking on the shorthand link provided on the navigation bar or by using a button provided in the events section.
+The user will input the form with personal details according to the requirement. This data includes attributes of the volunteer like Name, Date of birth, Email address, contact number and a reason for considering to volunteer with paristithi. The form will be validated using jQuery and will be able to detect abnormal inputs, and display error messages accordingly. The form will include a submit button which activates the validate function and only on validation will it submit the data to the server. This means that any data provided by the user will be stores in a table in the database and will be available for the Admin of the website and the developer to view. There is no exceptional case as the form is fully validated and does not submit till all data is entered in correct format. However, it does not keep track of the IP address and a single user can submit multiple forms from the same system which may lead to inconsistent data in the database and overloading of buffer capactity.   
+
+Donate form
+
+This functionality can be invoked by clicking on the Donate link on the navigation bar or by pressing the Donate button in the Donate section. The purpose of this button is to provide a user with a form to submit valuable details right before donating money towards the organization. The Donate form will include details like the name of the donor, the email address of the donor to send a verification message (iteration 2), the amount the user wishes to donate and the most appealing cause of the organization to the owner (for survey purposes). The form will be validated using jQuery and will not tolerate any invalid inputs. Correct inputs will be recoreded in the database to keep track of all the donors of the organization (Iteration 1). The submit button will redirect the user to a SSL secure payment gateway where the user can finish the transaction. The user will consequently be directed to the website homepage and a confirmation email will be sent to the user. The admin can view the donors who donated through the website and will be able to access the information they provide.   
+
+
+The admin portal will provide security privileges and credentials to a particular individual. It may act as a platform from where the technical adminstrator of the website can edit the content of the website and view the contents of the database. The admin portal will have three featured pages: Check login page, login success page, and a logout page. The check login page will require the user to input the admin credentials and the submit button will first encrypt the password using some encyption mechanism, and then check with the database if the already existing username and passwords match. The user will be directed to the login success page once the authentication is successful. This will mark the entry point into the Admin's portal. Here the admin may over look various tables from the database or add events to the website. If the admin wishes to leave, then the pressing the logout button will direct the admin to the check login page again. In this way, admin is provided more security clearance and privileges than the normal visitor on the website. 
+
+Through the admin portal, the admin is provided a button to add an event to the website. The admin will fill the Add event form with details like event name, place, date and time and upload an event image. This will then be recoreded in the database and will immediately display on the website homepage in the events section. Data will be retrieved dynamically from the updated database and the new event will appear on the website. This is why the process is called dynamic event addition. The add event form will be validated using jQuery.   
+
+
+Feedback form
+
+This form will be available in the contact us section where user can input their thoughts about the website, provide their suggestions on the methodologies adopted by Paristithi and list out some much needed constructive criticism. The users will be required to submit their name, email address and their suggestions.
+The response will be recoreded automatically in the database when the user presses the submit button. This information should be available to the admin through the Admins portal. Once the feedback is submitted, the user will be redirected back to the website homepage.
+
+Performance requirements
+
+Internet connection is mandatory for the website to be accessed by the sponsor, volunteer or Admin.
+The Javascript files are to be included at the bottom of the body so that if one function doesnt run properly, atleast the whole page is loaded and the website continues to deliver content in a degraded manner. This makes the website fault tolerant.
+The browsers should be updated and should support Bootstrap and jQuery plugins.
+
+Security requirements
+
+The Admin portal of the website is password protected
+The Password to the admin is encrypted using an encrypted version
+Password retrieved from the database is decrypted using a decryption function
+Neither the developer nor the admin can view the plaintext password from the database as it will be encrypted
+
+The forms filled by the user should be jQuery validated to avoid invalid data from entering the database
+
+Availability:  Content from the hosting server and the database must be available at all times
+Correctness:  The data entered into the database and retrieved from the database must be valid
+Maintainability: Website content must me easily maintained from the Admin portal
+Ease of use:  the website should be easy to interact with and the website content must be fairly easy to interpret
